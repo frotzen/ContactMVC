@@ -11,6 +11,7 @@ namespace ContactMVC.Models
         [Display(Name = "First Name")]
         [StringLength(50, ErrorMessage="The {0} must be at least {2} and max {1} characters long.", MinimumLength = 2)] 
         public string? FirstName { get; set; } // ? allows for null
+
         [Required]
         [Display(Name = "Last Name")]
         [StringLength(50, ErrorMessage = "The {0} must be at least {2} and max {1} characters long.", MinimumLength = 2)]
@@ -20,7 +21,10 @@ namespace ContactMVC.Models
         public string? FullName { get { return $"{FirstName} {LastName}"; } }
 
 
-        // TODO: Make relationship to Contact Model
-        // TODO: Make relationship to Category Model
+        // Navigation properties
+        public virtual ICollection<Contact> Contacts { get; set; } = new HashSet<Contact>();
+
+        
+        public virtual ICollection<Category> Categories { get; set; } = new HashSet<Category>();
     }
 }

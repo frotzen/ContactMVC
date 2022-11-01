@@ -1,0 +1,31 @@
+﻿@model ContactMVC.Models.EmailContactViewModel
+@{
+}
+<h1>Email Contact</h1>
+<div class="card">
+    <form asp-action="EmailContact" asp-controller="Contacts" method="post">
+    <div class="card-header">
+        <h3 classclass="heroTitle fs-4 mt-2">Email Contact: @Model.Contact!.FullName</h3>
+    </div>
+    <div class="card-body">
+        <div class="row row-cols-1">
+            <div class="col">
+                    <label asp-for="@Model.EmailData!.EmailAddress" class="form-label">To:</label>
+                    <textarea asp-for="@Model.EmailData!.EmailAddress" type="email" class="form-control" readonly></textarea>
+            </div>
+            <div class="col">
+                    <label asp-for="@Model.EmailData!.EmailSubject" class="form-label">Subject:</label>
+                    <input asp-for="@Model.EmailData!.EmailSubject" type="text" class="form-control" />
+            </div>
+            <div class="col">
+                    <label asp-for="@Model.EmailData!.EmailBody" class="form-label">Message:</label>
+                    <textarea asp-for="@Model.EmailData!.EmailBody" class="form-control" rows="5" required></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer d-flex justify-content-between p-3">
+        <a asp-action="Index" asp-controller="Contacts" class="btn btn-outline-secondary rounded-pill btnLink">Back</a>
+        <button type="submit" class="btn btn-primary rounded-pill btnLink">Send</button>
+    </div>
+  </form>
+</div>

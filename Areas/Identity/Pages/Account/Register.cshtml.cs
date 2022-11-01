@@ -103,6 +103,7 @@ namespace ContactMVC.Areas.Identity.Pages.Account
             [Display(Name = "First Name")]
             [StringLength(50, ErrorMessage = "The {0} must be at least {2} and max {1} characters long.", MinimumLength = 2)]
             public string? FirstName { get; set; }
+
             [Required]
             [Display(Name = "Last Name")]
             [StringLength(50, ErrorMessage = "The {0} must be at least {2} and max {1} characters long.", MinimumLength = 2)]
@@ -170,8 +171,10 @@ namespace ContactMVC.Areas.Identity.Pages.Account
             try
             {
                 AppUser user = Activator.CreateInstance<AppUser>();
+
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
+
                 return user;
             }
             catch
