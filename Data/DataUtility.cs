@@ -13,7 +13,6 @@ namespace ContactMVC.Data
             string? databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
 
             return string.IsNullOrEmpty(databaseUrl) ? connectionString : BuildConnectionString(databaseUrl);
-
         }
 
         private static string BuildConnectionString(string databaseUrl)
@@ -35,19 +34,23 @@ namespace ContactMVC.Data
 
         public static async Task ManageDataAsync(IServiceProvider svcProvider)
         {
+            //Obtain necessary services based on IServiceProvider parameter
             var dbContextSvc = svcProvider.GetRequiredService<ApplicationDbContext>();
             var userManagerSvc = svcProvider.GetRequiredService<UserManager<AppUser>>();
+
+            // Align Database & check Migrations
             await dbContextSvc.Database.MigrateAsync();
 
             // Seed Demo User
+            await SeedDemoUserAsync(userManagerSvc);
         }
 
         private static async Task SeedDemoUserAsync(UserManager<AppUser> userManager)
         {
             AppUser demoUser = new AppUser()
             {
-                UserName = "demouser@xyzzy.edu",
-                Email = "demouser@xyzzy.edu",
+                UserName = "demouser@xyzzy.null",
+                Email = "demouser@xyzzy.null",
                 FirstName = "Demo",
                 LastName = "User",
                 EmailConfirmed = true
@@ -72,7 +75,6 @@ namespace ContactMVC.Data
                 Console.WriteLine(ex.Message);
                 throw;
             }
-
         }
     }
 }
