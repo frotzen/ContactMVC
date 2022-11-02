@@ -1,8 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations; // for [Required]
 using System.ComponentModel.DataAnnotations.Schema; // for [NotMapped]
 using ContactMVC.Enums;
-using System.Xml.Linq;
-using System.ComponentModel;
 
 namespace ContactMVC.Models
 {
