@@ -6,7 +6,7 @@
 
 <div class="row pe-5">
     <div class="col-12 text-end mb-2">
-        <a class="btn btn-primary rounded-pill" asp-controller="Categories" asp-action="Create">Create New</a>
+        <a class="btn btn-secondary rounded-pill" asp-controller="Categories" asp-action="Create">Create New</a>
     </div>
 </div>
 <div class="row p-5">
@@ -26,9 +26,9 @@
                         @category.Name
                     </td>
                     <td class="d-flex justify-content-end">
-                        <a class="me-3 editIcons" asp-action="Edit" asp-route-id="@category.Id"><i class="bi bi-pencil-fill"></i></a>
+                        <a class="me-3 editIcons text-secondary" asp-action="Edit" asp-route-id="@category.Id"><i class="bi bi-pencil-fill"></i></a>
                         <a class="me-3 editIcons" asp-action="EmailCategory" asp-route-id="@category.Id"><i class="bi bi-envelope-fill"></i></a>
-                        <a class="me-3 editIcons" asp-action="Delete" asp-route-id="@category.Id"><i class="bi bi-trash-fill "></i></a>
+                        <a class="me-3 editIcons text-danger" asp-action="Delete" asp-route-id="@category.Id"><i class="bi bi-trash-fill "></i></a>
                     </td>
                     </tr>
                 }

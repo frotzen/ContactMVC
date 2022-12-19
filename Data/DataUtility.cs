@@ -49,8 +49,8 @@ namespace ContactMVC.Data
         {
             AppUser demoUser = new AppUser()
             {
-                UserName = "demouser@xyzzy.null",
-                Email = "demouser@xyzzy.null",
+                UserName = "demouser@mailinator.com",
+                Email = "demouser@mailinator.com",
                 FirstName = "Demo",
                 LastName = "User",
                 EmailConfirmed = true

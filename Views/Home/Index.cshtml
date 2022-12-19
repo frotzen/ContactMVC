@@ -1,44 +1,84 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+@{
     ViewData["Title"] = "Home Page";
-    Layout = "~/Views/Shared/_LayoutLander.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    AppUser appUser = await UserManager.GetUserAsync(User);
+    @*if (SignInManager.IsSignedIn(User))
+    {
+
+    }
+    else
+    {
+
+    }*@
 }
 
-<div class="row">
-    <div class="col-12 col-md-6">
-        <div>
-        <h1 class="heroTitle">
-            A place for all your <span class="textHighlight">Contacts</span>
-        </h1>
-        <div class="card-subtitle">
-            <p>Easily organize your contacts and events!</p>
-            <br />
-            <br />
-                <div class="d-flex align-items-center">
-                    <figure>
-                        <img src="https://devicons.railway.app/i/dot-net.svg" class="imgicon" />
-                        <figcaption>ASP.NET</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="https://devicons.railway.app/i/csharp.svg" class="imgicon" />
-                        <figcaption>C#</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="https://devicons.railway.app/i/postgresql.svg" class="imgicon" />
-                        <figcaption>Postgres</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="https://devicons.railway.app/i/bootstrap.svg" class="imgicon" />
-                        <figcaption>Bootstrap</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="https://devicons.railway.app/i/railway-dark.svg" class="imgicon" />
-                        <figcaption>Railway</figcaption>
-                    </figure>
+<div class="row mb-5">
+    <h1 class="heroTitle">
+        A place for all your <span class="text-dark">Contacts</span>
+    </h1>
+
+    <div class="col-6">
+        <div class="col-12 mb-4">
+            <div class="card-body">
+                <p class="card-text">
+                    ContactMVC is an ASP.NET MVC application written in C#.
+                    Contacts are stored in a Postgres database.  The User
+                    Interface is styled with Bootstrap.
+                </p>
+            </div>
+            <div class="row-12 justify-content-between p-5">
+                <div class="col">
+                    <div class="row align-items-center">
+                        <img src="https://devicons.railway.app/i/dot-net.svg" class="avatar-lg" />
+                        ASP.NET
+                    </div>
                 </div>
-        </div>
+                <div class="col">
+                    <div class="row align-items-center">
+                        <img src="https://devicons.railway.app/i/csharp.svg" class="avatar-lg" />
+                        C#
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row align-items-center">
+                        <img src="https://devicons.railway.app/i/postgresql.svg" class="avatar-lg" />
+                        Postgres
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row align-items-center">
+                        <img src="https://devicons.railway.app/i/bootstrap.svg" class="avatar-lg" />
+                        Bootstrap
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row align-items-center">
+                        <img src="https://devicons.railway.app/i/railway-dark.svg" class="avatar-lg" />
+                        Railway
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-    <div class="col-12 col-md-6 order-first order-md-last">
-        <img class="img-fluid" src="~/img/rolodex-letters-old.png" />
+
+    <div class="col-12 col-md-6">
+        <div class="card mb-4">
+            <img class="card-img-top" src="~/assets/img/rolodex-letters-old.png" alt="Card image cap" />
+            <div class="card-body">
+                <p class="card-text">
+                    Using ContactMVC is easy.  Create categories as tags for your contacts.  Create contacts
+                    and link them to your tags.
+                </p>
+                <p class="card-text">
+                    Contacts are searchable and can be edited or deleted, just like categories.
+                </p>
+            </div>
+        </div>
     </div>
+
 </div>

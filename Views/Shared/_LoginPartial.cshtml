@@ -4,6 +4,7 @@
 
 @{
     AppUser appUser = await UserManager.GetUserAsync(User);
+    
 }
 
 <ul class="navbar-nav">
@@ -21,10 +22,10 @@
 else
 {
     <li class="nav-item">
-        <a class="nav-link btnLink text-dark btn-primary btn btn-outline-dark rounded-pill" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link btnLink text-dark btn-primary btn btn-outline-dark rounded-pill" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        <a class="nav-link btnLink text-white btn btn-secondary rounded-pill m-3" asp-area="Identity" asp-page="/Account/Register">Register</a>
+    </li>                                                    
+    <li class="nav-item">                                    
+        <a class="nav-link btnLink text-white btn btn-secondary rounded-pill m-3" asp-area="Identity" asp-page="/Account/Login">Login</a>
     </li>
 }
 </ul>
